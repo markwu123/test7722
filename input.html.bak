@@ -346,7 +346,7 @@
         // 姓名
         let name = $('#sel_writer').val();
 		console.log(name)
-		if(name==''||name=='0')
+		if(name==''||name=='0'||name=null)
 		{
 			alert('請選擇一人')
 		}
