@@ -341,9 +341,15 @@
 	  
       $('#submit').on('click', function() {
         
+	
+		
         // 姓名
         let name = $('#sel_writer').val();
-
+		if(name='')
+		{
+			alert('請選擇一人')
+		}
+		else{
         // food
 		let demo_radio=$('input[name="demo_radio"]:checked').val();
 		//postionV
@@ -397,11 +403,14 @@
           data: data,
        
 
-			success:function(res){console.log("success:"+res)},
+			success:function(res){
+			console.log("success:"+res)
+				alert('寫入成功')
+			},
 			error:function(err){console.log(err)},
         });
 
-        
+        }
       });
     });
   </script>
