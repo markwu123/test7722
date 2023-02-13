@@ -372,27 +372,32 @@
 	    ver='3'
 	   else
 		ver='2'
+			var today = new Date();
+			var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+			var time = today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
 
         // post
         var data = {
-          'entry.1003930699': name,
-          'entry.1370562048': demo_radio,
-          'entry.392915668': posV,
-          'entry.1621348916': posX,
-		  'entry.1822235556': rdo_ifpass,
-		  'entry.957682546': rdo_repair,
-		  'entry.456961844': cb_tran,
-		  'entry.1460181495': rdo_teach,
-		  'entry.1276977345': rdo_hand,
-		  'entry.604748245': ver
+		  'createtime':date,
+          'name': name,
+		  'food':demo_radio,
+		  'posV':posV,
+		  'posX':posX,
+		  'rdo_ifpass': rdo_ifpass,
+		  'rdo_repair': rdo_repair,
+		  'cb_tran': cb_tran,
+		  'rdo_teach': rdo_teach,
+		  'rdo_hand': rdo_hand,
+		  'ver': ver
+		  
         };
         $.ajax({
-          type: 'POST',
-          url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfj45cqDPx-eq8xes-TaNmQI8A9yt5iqUqXxdpUx-tq6raj9w/formResponse',
+
+          url: 'https://script.google.com/macros/s/AKfycbwRRCTXDnSAl7eD038h7Cq0NLP6Q0iuPe20CtoF_D7TZLeFA_QmHWws68ZCMOZ0PXgx9A/exec',
           data: data,
-          contentType: 'application/json',
-          dataType: 'jsonp',
-			success:function(res){console.log("error:"+res)},
+       
+
+			success:function(res){console.log("success:"+res)},
 			error:function(err){console.log(err)},
         });
 
