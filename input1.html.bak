@@ -387,8 +387,8 @@
 		  'rdo_repair': rdo_repair,
 		  'cb_tran': cb_tran,
 		  'rdo_teach': rdo_teach,
-		  'rdo_hand': rdo_hand,
-		  'ver': ver
+		  'entry.1276977345': rdo_hand,
+		  'entry.604748245': ver
 		  
         };
         $.ajax({
