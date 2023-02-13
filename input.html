@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>完全客製google表單，美化表單樣式 - August - Let's Write</title>
+  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+  <!-- customized style -->
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    html, body, .container, .row {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .container {
+      max-width: 100%;
+    }
+    button {
+      font-size: 16px;
+    }
+
+    .half {
+      position: fixed;
+      margin: 0;
+      width: 50% !important;
+      height: 100%;
+    }
+    .bg {
+      background: url('https://fakeimg.pl/1920x1024/?text=KV') center center;
+      background-size: cover;
+    }
+    .form {
+      left: 50%;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    h1, form {
+      width: 100%;
+    }
+    h1 {
+      padding-top: 16px;
+      text-align: center;
+    }
+    form {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 400px;
+    }
+    .input-group {
+      margin-bottom: 30px;
+    }
+    .radio-group label {
+      display: inline-block;
+    }
+    textarea {
+      min-height: 100px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .half {
+        position: static;
+        width: 100% !important;
+        height: auto;
+      }
+      .bg {
+        height: 30vh;
+      }
+      form {
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+    }
+    
+
+  </style>
+
+ 
+
+  <!-- Google Tag Manager-->
+
+
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript)-->
+
+
+  <div class="container">
+    <main class="row">
+      <!-- bg -->
+     
+      
+      <!-- form -->
+      <section class="six columns half form">
+        <h1>齊齊心理課PAC3練習</h1>
+        <form>
+          <!-- 姓名 -->
+          <div class="input-group">
+            <label for="demo_name">溝通者</label>
+            <select id='sel_writer'>
+				<option value="0" value="0" selected disabled>請選擇</option>
+				<option value='爸爸'>爸爸</option>
+				<option value='媽媽'>媽媽</option>
+			</select>
+          </div>
+
+          <!-- 性別 -->
+          <div class="input-group">
+            <label>高偏好</label>
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_00" name="demo_radio" value="小饅頭" checked>
+                <label for="rdo_00">小饅頭</label>
+          
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_01" name="demo_radio" value="海苔" >
+                <label for="rdo_01">海苔</label>
+              
+
+              <!-- 法人 -->
+             
+                <input type="radio" id="rdo_02" name="demo_radio" value="品客洋竽片" >
+                <label for="rdo_02">品客洋竽片</label>
+           
+				
+                <input type="radio" id="rdo_03" name="demo_radio" value="卡啦姆久" >
+                <label for="rdo_03">卡啦姆久</label><br/>
+            
+			 
+                <input type="radio" id="rdo_04" name="demo_radio" value="香瓜">
+                <label for="rdo_04">香瓜</label>
+            
+				
+                <input type="radio" id="rdo_05" name="demo_radio" value="芭樂">
+                <label for="rdo_05">芭樂</label>
+          
+			  
+            </div>
+          </div>
+
+          <!-- 詢問類別 -->
+          <div class="input-group pac3">
+            <label>高偏好放置位置</label>
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_v01" name="rdov" value="1" checked>
+                <label for="rdo_v01"></label>
+                <input type="radio" id="rdo_v02" name="rdov" value="2" checked>
+                <label for="rdo_v02"></label>
+				<input type="radio" id="rdo_v03" name="rdov" value="3" checked>
+                <label for="rdo_v03"></label>
+                <input type="radio" id="rdo_v04" name="rdov" value="4" checked>
+                <label for="rdo_v04"></label><br/>
+                <input type="radio" id="rdo_v05" name="rdov" value="5" checked>
+                <label for="rdo_v05"></label>
+				<input type="radio" id="rdo_v06" name="rdov" value="6" checked>
+                <label for="rdo_v06"></label>
+                <input type="radio" id="rdo_v07" name="rdov" value="7" checked>
+                <label for="rdo_v07"></label>
+                <input type="radio" id="rdo_v08" name="rdov" value="8" checked>
+                <label for="rdo_v08"></label><br/>
+				<input type="radio" id="rdo_v09" name="rdov" value="9" checked>
+                <label for="rdo_v09"></label>				
+				<input type="radio" id="rdo_v10" name="rdov" value="10" checked>
+                <label for="rdo_v10"></label>
+				<input type="radio" id="rdo_v11" name="rdov" value="11" checked>
+                <label for="rdo_v11"></label>
+				<input type="radio" id="rdo_v12" name="rdov" value="12" checked>
+                <label for="rdo_v12"></label><br/>
+				<input type="radio" id="rdo_v13" name="rdov" value="13" checked>
+                <label for="rdo_v13"></label>
+				<input type="radio" id="rdo_v14" name="rdov" value="14" checked>
+                <label for="rdo_v14"></label>
+				<input type="radio" id="rdo_v15" name="rdov" value="15" checked>
+                <label for="rdo_v15"></label>
+				<input type="radio" id="rdo_v16" name="rdov" value="16" checked>
+                <label for="rdo_v16"></label>
+			  
+            </div>
+          </div>
+          <!-- 詢問類別 -->
+          <div class="input-group pac3">
+            <label>非偏好放置位置</label>
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_x01" name="rdox" value="1" checked>
+                <label for="rdo_x01"></label>
+                <input type="radio" id="rdo_x02" name="rdox" value="2" checked>
+                <label for="rdo_x02"></label>
+				<input type="radio" id="rdo_x03" name="rdox" value="3" checked>
+                <label for="rdo_x03"></label>
+                <input type="radio" id="rdo_x04" name="rdox" value="4" checked>
+                <label for="rdo_x04"></label><br/>
+                <input type="radio" id="rdo_x05" name="rdox" value="5" checked>
+                <label for="rdo_x05"></label>
+				<input type="radio" id="rdo_x06" name="rdox" value="6" checked>
+                <label for="rdo_x06"></label>
+                <input type="radio" id="rdo_x07" name="rdox" value="7" checked>
+                <label for="rdo_x07"></label>
+                <input type="radio" id="rdo_x08" name="rdox" value="8" checked>
+                <label for="rdo_x08"></label><br/>
+				<input type="radio" id="rdo_x09" name="rdox" value="9" checked>
+                <label for="rdo_x09"></label>				
+				<input type="radio" id="rdo_x10" name="rdox" value="10" checked>
+                <label for="rdo_x10"></label>
+				<input type="radio" id="rdo_x11" name="rdox" value="11" checked>
+                <label for="rdo_x11"></label>
+				<input type="radio" id="rdo_x12" name="rdox" value="12" checked>
+                <label for="rdo_x12"></label><br/>
+				<input type="radio" id="rdo_x13" name="rdox" value="13" checked>
+                <label for="rdo_x13"></label>
+				<input type="radio" id="rdo_x14" name="rdox" value="14" checked>
+                <label for="rdo_x14"></label>
+				<input type="radio" id="rdo_x15" name="rdox" value="15" checked>
+                <label for="rdo_x15"></label>
+				<input type="radio" id="rdo_x16" name="rdox" value="16" checked>
+                <label for="rdo_x16"></label>
+			  
+            </div>
+          </div>
+		  
+		  <!-- 詢問內容 -->
+          <div class="input-group">
+            <label for="demo_textarea">通過與否</label>
+            <div class="input-group">
+
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_pass" name="rdo_ifpass" value="P" checked>
+                <label for="rdo_pass">通過</label>
+          
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_no" name="rdo_ifpass" value="F" >
+                <label for="rdo_no">不通過</label>
+            </div>
+			</div>
+          </div>
+		  
+          <!-- 詢問內容 -->
+          <div class="input-group pac3">
+          <label for="demo_textarea">錯誤糾正方式</label>
+           <div class="input-group">
+
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_repair4" name="rdo_repair" value="4步" checked>
+                <label for="rdo_repair4">4步</label>
+          
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_repairm1" name="rdo_repair" value="退1" >
+                <label for="rdo_repairm1">退1</label>
+            </div>
+			</div>
+          </div>
+		  
+		  <!-- 詢問內容 -->
+          <div class="input-group pac3">
+            <label for="demo_textarea">是否進行轉換</label>
+			是<input type='checkbox' id='cb_tran' checked />
+			
+          </div>
+          <div class="input-group pac3">
+          <label for="demo_textarea">教導策略</label>
+           <div class="input-group">
+
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_teachh" name="rdo_teach" value="手指示" checked>
+                <label for="rdo_teachh">手指示</label>
+          
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_teachall" name="rdo_teach" value="全輔" >
+                <label for="rdo_teachall">全輔</label>
+            </div>
+			</div>
+          </div>
+		<div class="input-group pac3">
+          <label for="demo_textarea">手指示方向</label>
+           <div class="input-group">
+
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_handup" name="rdo_hand" value="掌上" checked>
+                <label for="rdo_handup">掌上</label>
+          
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_handdown" name="rdo_hand" value="掌下" >
+                <label for="rdo_handdown">掌下</label>
+            </div>
+			</div>
+          </div>		  
+		  
+		  
+          <button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
+
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(function() {
+	
+		$('#sel_writer').on('change', function() {
+		if($(this).find(":selected").val()!='爸爸')
+			$('.pac3').hide();
+		else
+			$('.pac3').show();
+				//alert( $(this).find(":selected").val() );
+		});
+	  
+      $('#submit').on('click', function() {
+        
+        // 姓名
+        let name = $('#sel_writer').val();
+
+        // food
+		let demo_radio=$('input[name="demo_radio"]:checked').val();
+		//postionV
+		let posV=$('input[name="rdov"]:checked').val();
+		//postionX
+		let posX=$('input[name="rdox"]:checked').val();
+
+		//ifpass
+		let rdo_ifpass=$('input[name="rdo_ifpass"]:checked').val();
+		//錯誤糾正方式
+		let rdo_repair=$('input[name="rdo_repair"]:checked').val();
+		//cb_tran
+		let cb_tran='N'
+		if ($('#cb_tran').is(":checked"))
+		{
+			cb_tran='Y'	
+		}
+		//rdo_teach
+		let rdo_teach=$('input[name="rdo_teach"]:checked').val();
+
+		//rdo_teach
+		let rdo_hand=$('input[name="rdo_hand"]:checked').val();
+
+       let ver=''
+	   if(name=='爸爸')
+	    ver='3'
+	   else
+		ver='2'
+
+        // post
+        var data = {
+          'entry.1003930699': name,
+          'entry.1370562048': demo_radio,
+          'entry.392915668': posV,
+          'entry.1621348916': posX,
+		  'entry.1822235556': rdo_ifpass,
+		  'entry.957682546': rdo_repair,
+		  'entry.456961844': cb_tran,
+		  'entry.1460181495': rdo_teach,
+		  'entry.1276977345': rdo_hand,
+		  'entry.604748245': ver
+        };
+        $.ajax({
+          type: 'POST',
+          url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfj45cqDPx-eq8xes-TaNmQI8A9yt5iqUqXxdpUx-tq6raj9w/formResponse',
+          data: data,
+          contentType: 'application/json',
+          dataType: 'jsonp',
+			success:function(res){console.log("error:"+res)},
+			error:function(err){console.log(err)},
+        });
+
+        
+      });
+    });
+  </script>
+  
+</body>
+</html>
