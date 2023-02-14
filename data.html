@@ -69,7 +69,8 @@
 										cb_tran:obj.values[i][6],
 										rdo_teach:obj.values[i][8],
 										rdo_hand:obj.values[i][9],
-										ver:obj.values[i][10]
+										ver:obj.values[i][10],
+										message:obj.values[i][11]
 										};
 						tableobject.push(newevent)
 					}
@@ -127,7 +128,7 @@
                 title: "MyDatatables_Excel",
                 text: "匯出Excel",
                 exportOptions: {
-                    columns:[0,1,2,3,4,5,6,7,8,9]
+                    columns:[0,1,2,3,4,5,6,7,8,9,10]
                 },
                 customize: function (xlsx) {
                 }
@@ -162,7 +163,8 @@
 			 { "data": "rdo_repair" },
 			  { "data": "cb_tran" },
 			  {"data":"rdo_teach"},
-			  {"data":"rdo_hand"}
+			  {"data":"rdo_hand"},
+			  {"data":"message"}
            
         ],
         createdRow: function (row, data, index) {
@@ -219,6 +221,7 @@
 						<th data-th="是否進行轉換">是否進行轉換</th>
                         <th data-th="教導策略">教導策略</th>
 						<th data-th="掌上掌下">掌上掌下</th>
+						<th data-th="備註">備註</th>
                     </tr>
                 </thead>
 </table>

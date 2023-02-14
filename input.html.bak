@@ -195,43 +195,43 @@
             </div>
           </div>
           <!-- 詢問類別 -->
-          <div class="input-group pac3">
-            <label id='label_nohigh'>非偏好放置位置</label>
+          <div class="input-group">
+            <label id='label_nohigh'>y非偏好放置位置</label>
             <div class="radio-group row">
               <!-- 男性 -->
             
                 <input type="radio" id="rdo_x01" name="rdox" value="1" checked>
-                <label for="rdo_x01"></label>
+                <label for="rdo_x01">1</label>
                 <input type="radio" id="rdo_x02" name="rdox" value="2" checked>
-                <label for="rdo_x02"></label>
+                <label for="rdo_x02">2</label>
 				<input type="radio" id="rdo_x03" name="rdox" value="3" checked>
-                <label for="rdo_x03"></label>
+                <label for="rdo_x03">3</label>
                 <input type="radio" id="rdo_x04" name="rdox" value="4" checked>
-                <label for="rdo_x04"></label><br/>
+                <label for="rdo_x04">4</label><br/>
                 <input type="radio" id="rdo_x05" name="rdox" value="5" checked>
-                <label for="rdo_x05"></label>
+                <label for="rdo_x05">5</label>
 				<input type="radio" id="rdo_x06" name="rdox" value="6" checked>
-                <label for="rdo_x06"></label>
+                <label for="rdo_x06">6</label>
                 <input type="radio" id="rdo_x07" name="rdox" value="7" checked>
-                <label for="rdo_x07"></label>
+                <label for="rdo_x07">7</label>
                 <input type="radio" id="rdo_x08" name="rdox" value="8" checked>
-                <label for="rdo_x08"></label><br/>
+                <label for="rdo_x08">8</label><br/>
 				<input type="radio" id="rdo_x09" name="rdox" value="9" checked>
-                <label for="rdo_x09"></label>				
+                <label for="rdo_x09">9</label>				
 				<input type="radio" id="rdo_x10" name="rdox" value="10" checked>
-                <label for="rdo_x10"></label>
+                <label for="rdo_x10">10</label>
 				<input type="radio" id="rdo_x11" name="rdox" value="11" checked>
-                <label for="rdo_x11"></label>
+                <label for="rdo_x11">11</label>
 				<input type="radio" id="rdo_x12" name="rdox" value="12" checked>
-                <label for="rdo_x12"></label><br/>
+                <label for="rdo_x12">12</label><br/>
 				<input type="radio" id="rdo_x13" name="rdox" value="13" checked>
-                <label for="rdo_x13"></label>
+                <label for="rdo_x13">13</label>
 				<input type="radio" id="rdo_x14" name="rdox" value="14" checked>
-                <label for="rdo_x14"></label>
+                <label for="rdo_x14">14</label>
 				<input type="radio" id="rdo_x15" name="rdox" value="15" checked>
-                <label for="rdo_x15"></label>
+                <label for="rdo_x15">15</label>
 				<input type="radio" id="rdo_x16" name="rdox" value="16" checked>
-                <label for="rdo_x16"></label>
+                <label for="rdo_x16">16</label>
 			  
             </div>
           </div>
@@ -318,7 +318,10 @@
             </div>
 			</div>
           </div>		  
-		  
+		    <div class="input-group">
+            <label for="demo_name">備註</label>
+			<textarea id='tb_message'></textarea>
+          </div>
 		  
           <button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
 
@@ -402,12 +405,14 @@
 		  'cb_tran': cb_tran,
 		  'rdo_teach': rdo_teach,
 		  'rdo_hand': rdo_hand,
-		  'ver': ver
+		  'ver': ver,
+		  'message':$('#tb_message').val()
 		  
         };
+		console.log(data)
         $.ajax({
 
-          url: 'https://script.google.com/macros/s/AKfycbwRRCTXDnSAl7eD038h7Cq0NLP6Q0iuPe20CtoF_D7TZLeFA_QmHWws68ZCMOZ0PXgx9A/exec',
+          url: 'https://script.google.com/macros/s/AKfycbxq5wVVf8OzVtZVdGMO0_D679wJ1ZTcANTxSpNwILn70Pn0T1GzWa7MNCq8P-ADQUMgtA/exec',
           data: data,
        
 

@@ -318,7 +318,10 @@
             </div>
 			</div>
           </div>		  
-		  
+		    <div class="input-group">
+            <label for="demo_name">備註</label>
+			<textarea id='tb_message'>無</textarea>
+          </div>
 		  
           <button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
 
@@ -402,12 +405,14 @@
 		  'cb_tran': cb_tran,
 		  'rdo_teach': rdo_teach,
 		  'rdo_hand': rdo_hand,
-		  'ver': ver
+		  'ver': ver,
+		  'message':$('#tb_message').val()
 		  
         };
+		console.log(data)
         $.ajax({
 
-          url: 'https://script.google.com/macros/s/AKfycbwRRCTXDnSAl7eD038h7Cq0NLP6Q0iuPe20CtoF_D7TZLeFA_QmHWws68ZCMOZ0PXgx9A/exec',
+          url: 'https://script.google.com/macros/s/AKfycbxq5wVVf8OzVtZVdGMO0_D679wJ1ZTcANTxSpNwILn70Pn0T1GzWa7MNCq8P-ADQUMgtA/exec',
           data: data,
        
 

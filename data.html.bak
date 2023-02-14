@@ -69,7 +69,8 @@
 										cb_tran:obj.values[i][6],
 										rdo_teach:obj.values[i][8],
 										rdo_hand:obj.values[i][9],
-										ver:obj.values[i][10]
+										ver:obj.values[i][10],
+										message:obj.values[i][11]
 										};
 						tableobject.push(newevent)
 					}
@@ -151,8 +152,7 @@
 					 else
 					 {	 
 						return '齊離本距離'+data+'<br/>'+'齊離人距離'+full.posX+'<br/>'
-                    //return '<img src="img/'+data+'_'+full.posX+'.jpg" with="10" heigh="10" alt="'+data+'_'+full.posX+'">'
-                    //"<div class='text-wrap width-200'>" + data + "</div>";
+                    
                 	}
 
 
@@ -163,7 +163,8 @@
 			 { "data": "rdo_repair" },
 			  { "data": "cb_tran" },
 			  {"data":"rdo_teach"},
-			  {"data":"rdo_hand"}
+			  {"data":"rdo_hand"},
+			  {"data":"message"}
            
         ],
         createdRow: function (row, data, index) {
@@ -220,6 +221,7 @@
 						<th data-th="是否進行轉換">是否進行轉換</th>
                         <th data-th="教導策略">教導策略</th>
 						<th data-th="掌上掌下">掌上掌下</th>
+						<th data-th="備註">備註</th>
                     </tr>
                 </thead>
 </table>
