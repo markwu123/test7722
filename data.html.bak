@@ -62,7 +62,8 @@
 						let newevent = {time:obj.values[i][0],
 										name:obj.values[i][1], 
 										food:obj.values[i][2], 
-										pos:parseInt(obj.values[i][3])*parseInt(obj.values[i][7]),
+										posV:obj.values[i][3],
+										posX:obj.values[i][7],
 										rdo_ifpass:obj.values[i][4],
 										rdo_repair:obj.values[i][5],
 										cb_tran:obj.values[i][6],
@@ -126,7 +127,7 @@
                 title: "MyDatatables_Excel",
                 text: "匯出Excel",
                 exportOptions: {
-                    columns:[1,2,3,4,5]
+                    columns:[0,1,2,3,4,5,6,7,8,9]
                 },
                 customize: function (xlsx) {
                 }
@@ -141,12 +142,12 @@
 			{"data":"ver"},
 			{ "data": "food" },
             {
-                "data": "pos",
+                "data": "posV",
                 render: function (data, type, full, meta) {
 
             
                         
-                    return data
+                    return '<img src="img/'+data+'_'+full.posX+'.jpg" with="10" heigh="10" alt="'+data+'_'+full.posX+'">'
                     //"<div class='text-wrap width-200'>" + data + "</div>";
                 }
 

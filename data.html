@@ -16,7 +16,7 @@
     $(function() {
 	 $("#result_table").DataTable({
         searching: false, //關閉搜尋功能
-        order: [[1, "asc"]],
+        order: [[0, "desc"]],
         info: false,
         pagingType: "full_numbers",
         oLanguage: {    // 中文化  
@@ -62,7 +62,8 @@
 						let newevent = {time:obj.values[i][0],
 										name:obj.values[i][1], 
 										food:obj.values[i][2], 
-										pos:parseInt(obj.values[i][3])*parseInt(obj.values[i][7]),
+										posV:obj.values[i][3],
+										posX:obj.values[i][7],
 										rdo_ifpass:obj.values[i][4],
 										rdo_repair:obj.values[i][5],
 										cb_tran:obj.values[i][6],
@@ -141,12 +142,12 @@
 			{"data":"ver"},
 			{ "data": "food" },
             {
-                "data": "pos",
+                "data": "posV",
                 render: function (data, type, full, meta) {
 
             
                         
-                    return data
+                    return '<img src="img/'+data+'_'+full.posX+'.jpg" with="10" heigh="10" alt="'+data+'_'+full.posX+'">'
                     //"<div class='text-wrap width-200'>" + data + "</div>";
                 }
 
