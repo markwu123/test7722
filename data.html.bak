@@ -150,14 +150,14 @@
 					 }
 					 else
 					 {	 
-						return '齊離本距離'+data+'<br/>'+'齊離人距離'+full.posX+'<br/>'+
+						return '齊離本距離'+data+'<br/>'+'齊離人距離'+full.posX+'<br/>'
                     //return '<img src="img/'+data+'_'+full.posX+'.jpg" with="10" heigh="10" alt="'+data+'_'+full.posX+'">'
                     //"<div class='text-wrap width-200'>" + data + "</div>";
                 	}
 
 
 
-            }
+				}
 			},
             { "data": "rdo_ifpass" },
 			 { "data": "rdo_repair" },
