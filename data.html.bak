@@ -187,7 +187,8 @@
 				output=output+Vb
 			  else if(bpos==posX)
 				output=output+Vx
-			  output=output+emptyb
+			  else 
+				output=output+emptyb
 			
 			}
 		     output=output+'<br/>'
