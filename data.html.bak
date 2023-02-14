@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="css/buttons.dataTables.css" />
+
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="js/buttons.html5.js"></script>
+    <script type="text/javascript" src="js/jszip.min.js"></script>	
+
+  <script>
+    $(function() {
+	 $("#result_table").DataTable({
+        searching: false, //關閉搜尋功能
+        order: [[1, "asc"]],
+        info: false,
+        pagingType: "full_numbers",
+        oLanguage: {    // 中文化  
+            "sLengthMenu": "每頁顯示 _MENU_筆",
+            "sZeroRecords": "沒有找到符合條件的資料",
+            "sProcessing": "載入中...",
+            "sInfo": "當前第 _START_ - _END_ 筆　共計 _TOTAL_ 筆",
+            "sInfoEmpty": "沒有記錄",
+            "sInfoFiltered": "(從 _MAX_ 條記錄中過濾)",
+            "sSearch": "搜尋：",
+            "oPaginate": {
+                "sFirst": "首頁",
+                "sPrevious": "上頁",
+                "sNext": "下頁",
+                "sLast": "末頁"
+            }
+        },
+        dom: "<B><t>" +
+            "<'row page'<'col-sm-8'p><'col-sm-4'l>>",
+        destroy: true, //Cannot reinitialise DataTable,解决重新加载表格内容问题
+        ajax: function (data, callback, settings) {
+            $.ajax({
+                type: 'get',
+
+                url: 'https://sheets.googleapis.com/v4/spreadsheets/1wGXGorVirIpFRyCEFoNQ2-Pu_M8wkq-oP__WTHtYJpg/values/sheet1?alt=json&key=AIzaSyAbgVq3dajMoKLHAYI_ziuGJ2CbZZVITjE',
+                datatype: 'json',
+                beforeSend: function () {
+
+                    $('#overlay').show();
+
+                },
+                complete: function () {
+                    $('#overlay').hide();
+
+                },
+                success: function (result) {
+					
+					let obj=result
+					let tableobject=[];
+					for(i=1;i<obj.values.length;i++)
+					{
+						
+						let newevent = {time:obj.values[i][0],
+										name:obj.values[i][1], 
+										food:obj.values[i][2], 
+										pos:parseInt(obj.values[i][3])*parseInt(obj.values[i][7]),
+										rdo_ifpass:obj.values[i][4],
+										rdo_repair:obj.values[i][5],
+										cb_tran:obj.values[i][6],
+										rdo_teach:obj.values[i][8],
+										rdo_hand:obj.values[i][9],
+										ver:obj.values[i][10]
+										};
+						tableobject.push(newevent)
+					}
+					//console.log(tableobject)
+					let tableresult={data:tableobject}
+					callback(tableresult)
+					
+//callback(JSON.parse(result));
+                    
+                    
+                },
+                error: function (ex) {
+                    alert(JSON.stringify(ex));
+                }
+            });
+        },
+        iDisplayLength: 20,// 每頁顯示筆數 
+        lengthMenu: [[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "All"]],
+        drawCallback: function () {
+            var page_min = 5;
+            var $api = this.api();
+            var pages = $api.page.info().pages;
+            var rows = $api.data().length;
+
+            // Tailor the settings based on the row count
+            if (rows <= page_min) {
+                $(".row.page").css('display', 'none')
+                // Not enough rows for really any features, hide filter/pagination/length
+                //$data_table
+                //    .next('.dataTables_info').css('display', 'none')
+                //    .next('.dataTables_paginate').css('display', 'none');
+
+                //$data_table
+                //    .prev('.dataTables_filter').css('display', 'none')
+                //    .prev('.dataTables_length').css('display', 'none')
+            } else if (pages === 1) {
+                // With this current length setting, not more than 1 page, hide pagination
+                $(".row.page").css('display', 'none')
+            } else {
+                // SHow everything
+                    $(".row.page").removeAttr("style")
+
+            }
+        },
+        bSort: true,// 排序
+        columnDefs: [{
+            //targets: [0], //設定第1欄不進行排序功能
+            //orderable: false,
+        }],
+   
+        buttons: [
+
+            {
+                extend: 'excelHtml5',
+                title: "MyDatatables_Excel",
+                text: "匯出Excel",
+                exportOptions: {
+                    columns:[1,2,3,4,5]
+                },
+                customize: function (xlsx) {
+                }
+            }
+
+        ],
+        columns: [
+      
+ 
+            { "data": "time" },
+			{ "data": "name" },
+			{"data":"ver"},
+			{ "data": "food" },
+            {
+                "data": "pos",
+                render: function (data, type, full, meta) {
+
+            
+                        
+                    return data
+                    //"<div class='text-wrap width-200'>" + data + "</div>";
+                }
+
+
+
+            },
+            { "data": "rdo_ifpass" },
+			 { "data": "rdo_repair" },
+			  { "data": "cb_tran" },
+			  {"data":"rdo_teach"},
+			  {"data":"rdo_hand"}
+           
+        ],
+        createdRow: function (row, data, index) {
+            //if (data.isOnBoard == '上線') {
+            //    //  console.log($('td', row).eq(2).text);
+            //    $('td', row).eq(5).color
+            //}
+        }
+
+
+    })
+		
+    });
+  </script>	
+	
+</head>
+<body>
+<table id="result_table" class="table_th_line" style="width:100%">
+                <thead>
+                    <tr>
+                        <th data-th="日期">日期</th>
+                        <th data-th="溝通者">溝通者</th>
+						<th data-th='版本'>版本</th>
+                        <th data-th="高偏好">高偏好</th>
+                        <th data-th="偏好物位置">偏好物位置</th>
+                        <th data-th="通過與否">通過與否</th>
+                        <th data-th="錯誤糾正方式">錯誤糾正方式</th>
+						<th data-th="是否進行轉換">是否進行轉換</th>
+                        <th data-th="教導策略">教導策略</th>
+						<th data-th="掌上掌下">掌上掌下</th>
+                    </tr>
+                </thead>
+</table>
+            <div id="overlay" style="display:none">資料處理中請等等 <img src="/images/loading.gif" /></div>
+
+</body>
+</html>
