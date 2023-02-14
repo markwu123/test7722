@@ -62,8 +62,8 @@
 						let newevent = {time:obj.values[i][0],
 										name:obj.values[i][1], 
 										food:obj.values[i][2], 
-										posV:obj.values[i][3],
-										posX:obj.values[i][7],
+										posV:parseInt(obj.values[i][3]),
+										posX:parseInt(obj.values[i][7]),
 										rdo_ifpass:obj.values[i][4],
 										rdo_repair:obj.values[i][5],
 										cb_tran:obj.values[i][6],
@@ -145,9 +145,9 @@
                 "data": "posV",
                 render: function (data, type, full, meta) {
 
-            
-                        
-                    return '<img src="img/'+data+'_'+full.posX+'.jpg" with="10" heigh="10" alt="'+data+'_'+full.posX+'">'
+						let outt=getPos(data,full.posX)
+                      return outt
+                    //return '<img src="img/'+data+'_'+full.posX+'.jpg" with="10" heigh="10" alt="'+data+'_'+full.posX+'">'
                     //"<div class='text-wrap width-200'>" + data + "</div>";
                 }
 
@@ -172,6 +172,32 @@
     })
 		
     });
+	function getPos(PosV,posX)
+	{
+		let emptyb='□'
+		let Vb='v'
+		let Vx='x'
+		let output='';
+		for(i=0;i<4;i++)
+		{
+			for(j=0;j<4;j++)
+			{
+			  let bpos=(i*4+j)+1
+			  if(bpos==PosV)
+				output=output+Vb
+			  else if(bpos==posX)
+				output=output+Vx
+			  else 
+				output=output+emptyb
+			
+			}
+		     output=output+'<br/>'
+		}
+	
+		return output
+	
+	}
+	
   </script>	
 	
 </head>
