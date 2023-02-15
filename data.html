@@ -74,8 +74,9 @@
 										};
 						tableobject.push(newevent)
 					}
-					//console.log(tableobject)
+					
 					let tableresult={data:tableobject}
+					
 					callback(tableresult)
 					
 //callback(JSON.parse(result));
@@ -138,7 +139,17 @@
         columns: [
       
  
-            { "data": "time" },
+            { "data": "time",
+                render: function (data, type, full, meta) {
+						return new Date(data).toLocaleDateString()+' '+new Date(data).toLocaleTimeString();
+
+
+
+				}
+			
+
+
+			},
 			{ "data": "name" },
 			{"data":"ver"},
 			{ "data": "food" },
@@ -160,11 +171,61 @@
 				}
 			},
             { "data": "rdo_ifpass" },
-			 { "data": "rdo_repair" },
-			  { "data": "cb_tran" },
-			  {"data":"rdo_teach"},
-			  {"data":"rdo_hand"},
-			  {"data":"message"}
+			 { "data": "rdo_repair",
+				render: function (data, type, full, meta) {
+					if(full.rdo_ifpass=='P')
+						return '';
+					else
+						return data;
+
+
+
+				}
+
+
+			 },
+			  { "data": "cb_tran",
+				render: function (data, type, full, meta) {
+					if(full.rdo_ifpass=='P')
+						return '';
+					else
+						return data;
+
+
+
+				} },
+			  {"data":"rdo_teach",
+				render: function (data, type, full, meta) {
+					if(full.rdo_ifpass=='P')
+						return '';
+					else
+						return data;
+
+
+
+				}},
+			  {"data":"rdo_hand",
+				render: function (data, type, full, meta) {
+					if(full.rdo_ifpass=='P')
+						return '';
+					else
+						return data;
+
+
+
+				}},
+			  {"data":"message",
+				render: function (data, type, full, meta) {
+					if(data==undefined)
+						return '';
+					else
+						return data;
+
+
+
+				}
+			  
+			  }
            
         ],
         createdRow: function (row, data, index) {
