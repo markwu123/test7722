@@ -245,17 +245,41 @@
               <!-- 男性 -->
             
                 <input type="radio" id="rdo_pass" name="rdo_ifpass" value="P" checked>
-                <label for="rdo_pass">通過</label>
-          
+                <label for="rdo_pass">獨立完成通過</label>
+                <input type="radio" id="rdo_pass" name="rdo_ifpass" value="HP" >
+                <label for="rdo_no">手動協助通過</label>
 
               <!-- 女性 -->
             
                 <input type="radio" id="rdo_no" name="rdo_ifpass" value="F" >
                 <label for="rdo_no">不通過</label>
             </div>
-			</div>
+	    </div>
           </div>
-		  
+	<!-- 詢問內容 -->
+	     <div class="input-group">
+            <label for="demo_textarea">手動指示位置</label>
+            <div class="input-group">
+
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_hd0" name="rod_handdistance" value="0" checked>
+                <label for="rdo_pass">在照片上</label>
+                <input type="radio" id="rdo_hd1" name="rod_handdistance" value="1" >
+                <label for="rdo_no">在照片上空</label>
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_hd2" name="rod_handdistance" value="2" >
+                <label for="rdo_no">遠離照片一點</label>
+                <input type="radio" id="rdo_hd3" name="rod_handdistance" value="3" >
+                <label for="rdo_no">遠遠比</label>		    
+            </div>
+	    </div>
+          </div>
+		
+		
           <!-- 詢問內容 -->
           <div class="input-group pac3">
           <label for="demo_textarea">錯誤糾正方式</label>
@@ -383,6 +407,10 @@
 
 		//rdo_teach
 		let rdo_hand=$('input[name="rdo_hand"]:checked').val();
+			
+		
+		let rdo_distince=$('input[name="rod_handdistance"]:checked').val();
+			
 
        let ver=''
 	   if(name=='爸爸')
@@ -406,13 +434,14 @@
 		  'rdo_teach': rdo_teach,
 		  'rdo_hand': rdo_hand,
 		  'ver': ver,
-		  'message':$('#tb_message').val()
+		  'message':$('#tb_message').val(),
+		  'handdistance':rdo_distince
 		  
         };
 		console.log(data)
         $.ajax({
 
-          url: 'https://script.google.com/macros/s/AKfycbxq5wVVf8OzVtZVdGMO0_D679wJ1ZTcANTxSpNwILn70Pn0T1GzWa7MNCq8P-ADQUMgtA/exec',
+          url: 'https://script.google.com/macros/s/AKfycbx-EYTOX258PqghKdP66om1DKr24Y0IL1dT767c4MRtg4RGITuCFSemScGzo6J94uvs5g/exec',
           data: data,
        
 
