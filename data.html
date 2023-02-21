@@ -71,7 +71,10 @@
 										rdo_hand:obj.values[i][9],
 										ver:obj.values[i][10],
 										message:obj.values[i][11],
-										handdistance:obj.values[i][12]
+										handdistance:obj.values[i][12],
+										idSP:obj.values[i][13],
+										helpSP:obj.values[i][14],
+										failP:obj.values[i][15],											
 										};
 						tableobject.push(newevent)
 					}
@@ -191,7 +194,14 @@
 					else
 						return data;
 
-	 }
+	 		}
+
+			},
+			 {"data":"idSP",
+				render: function (data, type, full, meta) {
+					return '獨立比率:'+data+'%<br/>協助比率:'+full.helpSP+'%<br/>失敗比率:'+full.failP
+
+	 		}
 
 			},
 			 {"data":"handdistance",
@@ -255,6 +265,7 @@
 
 
 				}}
+
 			  
 			  
            
