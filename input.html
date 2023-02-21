@@ -346,9 +346,9 @@
             		<label for="demo_name">備註</label>
 			<textarea id='tb_message'>無</textarea>
                    </div>
-		<label>獨立完成比率</label><span id='span_indsuccess'></span>
-		<label>協助完成比率</label><span id='span_notdsuccess'></span>
-		<label>失敗</label><span id='span_fail'></span>
+		<label>獨立完成比率</label><span id='span_indsuccess'></span>'%'
+		<label>協助完成比率</label><span id='span_notdsuccess'></span>'%'
+		<label>失敗</label><span id='span_fail'></span>'%'
           <button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
 
         </form>
@@ -437,13 +437,15 @@
 		  'rdo_hand': rdo_hand,
 		  'ver': ver,
 		  'message':$('#tb_message').val(),
-		  'handdistance':rdo_distince
-		  
+		  'handdistance':rdo_distince,
+		  'idsuccesscountP':$("#span_indsuccess").text(),
+		  'notidsucP':$("#span_notdsuccess").text(),
+		  'failcP':$("#span_fail").text()
         };
 		console.log(data)
         $.ajax({
 
-          url: 'https://script.google.com/macros/s/AKfycbx-EYTOX258PqghKdP66om1DKr24Y0IL1dT767c4MRtg4RGITuCFSemScGzo6J94uvs5g/exec',
+          url: 'https://script.google.com/macros/s/AKfycbwMOdxEBLV31bbl6dgtxV2VgmvNorE6eHCYEJGFkYlA5OdDa3pdoAeD6WUg3duJxou5nA/exec',
           data: data,
        
 
