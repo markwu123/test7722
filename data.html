@@ -70,7 +70,8 @@
 										rdo_teach:obj.values[i][8],
 										rdo_hand:obj.values[i][9],
 										ver:obj.values[i][10],
-										message:obj.values[i][11]
+										message:obj.values[i][11],
+										handdistance:obj.values[i][12]
 										};
 						tableobject.push(newevent)
 					}
@@ -172,7 +173,45 @@
 
 				}
 			},
-            { "data": "rdo_ifpass" },
+            		{ "data": "rdo_ifpass",
+				render: function (data, type, full, meta) {
+					if(data=='P')
+						return '獨立通過';
+					else if(data=='HP')
+						return '手動指示通過';
+					else
+						return '不通過';
+			
+			},
+		
+			  {"data":"message",
+				render: function (data, type, full, meta) {
+					if(data==undefined)
+						return '';
+					else
+						return data;
+
+
+
+			},
+			 {"data":"handdistance",
+				render: function (data, type, full, meta) {
+					if(data==undefined)
+						return '無';
+					else if(data=='0')
+						return '在照片上';
+					else if(data=='1')
+						return '在照片上空';
+					else if(data=='2')
+						return '遠離照片一點';
+					else 
+						return '遠遠比'
+					
+
+
+
+			},	      
+				      
 			 { "data": "rdo_repair",
 				render: function (data, type, full, meta) {
 					if(full.rdo_ifpass=='P')
@@ -215,17 +254,7 @@
 
 
 
-				}},
-			  {"data":"message",
-				render: function (data, type, full, meta) {
-					if(data==undefined)
-						return '';
-					else
-						return data;
-
-
-
-				}
+				}}
 			  
 			  }
            
@@ -276,15 +305,17 @@
                     <tr>
                         <th data-th="日期">日期</th>
                         <th data-th="溝通者">溝通者</th>
-						<th data-th='版本'>版本</th>
+			<th data-th='版本'>版本</th>
                         <th data-th="高偏好">高偏好</th>
                         <th data-th="偏好物位置">偏好物位置</th>
                         <th data-th="通過與否">通過與否</th>
+		        <th data-th="備註">備註</th>
+			<th data-th="手動輔助距離">手動輔助</th>
                         <th data-th="錯誤糾正方式">錯誤糾正方式</th>
-						<th data-th="是否進行轉換">是否進行轉換</th>
+			<th data-th="是否進行轉換">是否進行轉換</th>
                         <th data-th="教導策略">教導策略</th>
-						<th data-th="掌上掌下">掌上掌下</th>
-						<th data-th="備註">備註</th>
+			<th data-th="掌上掌下">掌上掌下</th>
+			
                     </tr>
                 </thead>
 </table>
