@@ -199,7 +199,10 @@
 			},
 			 {"data":"idSP",
 				render: function (data, type, full, meta) {
-					return '獨立比率:'+data+'%<br/>協助比率:'+full.helpSP+'%<br/>失敗比率:'+full.failP
+					if(data!=undefined)
+						return '獨立比率:'+data+'%<br/>協助比率:'+full.helpSP+'%<br/>失敗比率:'+full.failP
+					else
+						return '尚未開始統計'
 
 	 		}
 
