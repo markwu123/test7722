@@ -491,7 +491,9 @@
 		  'handdistance':rdo_distince,
 		  'idsuccesscountP':$("#span_indsuccess").text(),
 		  'notidsucP':$("#span_notdsuccess").text(),
-		  'failcP':$("#span_fail").text()
+		  'failcP':$("#span_fail").text(),
+		  'rdovsize':rdo_vsize,
+		  'rdoxszie':rdo_xsize
         };
 		console.log(data)
         $.ajax({
