@@ -156,7 +156,26 @@
 			  
             </div>
           </div>
+		  <!-- 詢問內容 -->
+          <div class="input-group">
+            <label for="demo_textarea">高偏好大小</label>
+            <div class="input-group">
 
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_vbig" name="rdo_vsize" value="大" checked>
+                <label for="rdo_vbig">大</label>
+                <input type="radio" id="rdo_vmed" name="rdo_vsize" value="中" >
+                <label for="rdo_vmed">中</label>
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_vsmall" name="rdo_vsize" value="小" >
+                <label for="rdo_vsmall">小</label>
+            </div>
+	    </div>
+          </div>
           <!-- 詢問類別 -->
           <div class="input-group">
             <label id='label_high'>高偏好放置位置</label>
@@ -198,9 +217,30 @@
 			  
             </div>
           </div>
+		  <!-- 詢問內容 -->
+          <div class="input-group">
+            <label for="demo_textarea">干擾物大小</label>
+            <div class="input-group">
+
+            <div class="radio-group row">
+              <!-- 男性 -->
+            
+                <input type="radio" id="rdo_xbig" name="rdo_xsize" value="空白" checked>
+                <label for="rdo_xbig">大</label>
+                <input type="radio" id="rdo_xmed" name="rdo_xsize" value="模糊">
+                <label for="rdo_xmed">中</label>
+
+              <!-- 女性 -->
+            
+                <input type="radio" id="rdo_xsmall" name="rdo_xsize" value="清楚" >
+                <label for="rdo_xsmall">小</label>
+            </div>
+	    </div> 
+		  
+		  
           <!-- 詢問類別 -->
           <div class="input-group">
-            <label id='label_nohigh'>y非偏好放置位置</label>
+            <label id='label_nohigh'>非偏好放置位置</label>
             <div class="radio-group row">
               <!-- 男性 -->
             
@@ -399,6 +439,12 @@
 		//postionX
 		let posX=$('input[name="rdox"]:checked').val();
 
+
+		//ifpass
+		let rdo_vsize=$('input[name="rdo_vsize"]:checked').val();
+		//錯誤糾正方式
+		let rdo_xsize=$('input[name="rdo_xsize"]:checked').val();
+
 		//ifpass
 		let rdo_ifpass=$('input[name="rdo_ifpass"]:checked').val();
 		//錯誤糾正方式
@@ -445,7 +491,9 @@
 		  'handdistance':rdo_distince,
 		  'idsuccesscountP':$("#span_indsuccess").text(),
 		  'notidsucP':$("#span_notdsuccess").text(),
-		  'failcP':$("#span_fail").text()
+		  'failcP':$("#span_fail").text(),
+		  'rdovsize':rdo_vsize,
+		  'rdoxszie':rdo_xsize
         };
 		console.log(data)
         $.ajax({
